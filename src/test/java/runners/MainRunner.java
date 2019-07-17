@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         // Features files location
-        features = "sr/test/java/features/",
+        features = "src/test/java/features/",
         // Steps files location
         glue = "step_definitions",
         monochrome = true,
