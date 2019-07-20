@@ -1,5 +1,6 @@
 package utils;
 
+import data_provider.ConfigFileReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,14 +14,14 @@ import java.util.concurrent.TimeUnit;
 public class DriverFactory {
 
     public static WebDriver driver;
+    ConfigFileReader configFileReader;
 
     public WebDriver getDriver() {
         try {
-            // Read Config
-            ReadConfigFile file = new ReadConfigFile();
-            String browserName = file.getBrowser();
+            configFileReader = new ConfigFileReader();
+            String browserName = configFileReader.getBrowserName();
 
-            switch (browserName) {
+            switch (browserName.toLowerCase()) {
                 case "chrome":
                     if (null == driver) {
                         ChromeOptions options = new ChromeOptions();
