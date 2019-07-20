@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
 
-    public static WebDriver driver;
-    ConfigFileReader configFileReader;
+    protected static WebDriver driver;
+    private ConfigFileReader configFileReader;
 
     public WebDriver getDriver() {
         try {

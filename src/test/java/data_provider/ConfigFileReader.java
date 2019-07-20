@@ -32,7 +32,7 @@ public class ConfigFileReader {
 
     public String getBrowserName(){
         String browser = properties.getProperty("browserName");
-        if (browser!= null) {
+        if (browser != null) {
             return browser;
         } else {
             throw new RuntimeException("browserName not specified in the configuration.properties file.");
