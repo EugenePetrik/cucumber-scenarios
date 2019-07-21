@@ -1,19 +1,18 @@
 package step_definitions;
 
+import com.vimalselvam.cucumber.listener.Reporter;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Given;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import utils.DriverFactory;
 
 public class ContactUsSteps extends DriverFactory {
 
     @Given("I access webdriveruniversity contact us form")
     public void iAccessWebdriveruniversityContactUsForm() {
+        Reporter.addStepLog("Accessing webdriveruniversity");
         contactUsPage.getContactUsPage();
     }
 

@@ -26,6 +26,7 @@ public class MasterHooks extends DriverFactory {
             if (driver != null) {
                 driver.manage().deleteAllCookies();
                 driver.quit();
+                driver = null;
             }
         } catch (Exception e) {
             System.out.println("Method has failed: tearDownAndScreenshotOnFailure, Exception " + e.getMessage());
