@@ -8,13 +8,20 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.PageFactory;
+import page_objects.ContactFormThankYouPage;
+import page_objects.ContactUsPage;
+import page_objects.ProductsPage;
 
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
 
     protected static WebDriver driver;
-    private ConfigFileReader configFileReader;
+    protected ConfigFileReader configFileReader;
+    protected static ContactUsPage contactUsPage;
+    protected static ProductsPage productsPage;
+    protected static ContactFormThankYouPage contactFormThankYouPage;
 
     public WebDriver getDriver() {
         try {
@@ -60,6 +67,9 @@ public class DriverFactory {
         } finally {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            contactUsPage = PageFactory.initElements(driver, ContactUsPage.class);
+            productsPage = PageFactory.initElements(driver, ProductsPage.class);
+            contactFormThankYouPage = PageFactory.initElements(driver, ContactFormThankYouPage.class);
         }
 
         return driver;

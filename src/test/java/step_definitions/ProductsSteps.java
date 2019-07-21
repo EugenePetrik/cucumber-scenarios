@@ -15,11 +15,12 @@ public class ProductsSteps extends DriverFactory {
 
     @When("user clicks on {string}")
     public void userClicksOn(String locator) {
-        getDriver().findElement(By.cssSelector(locator)).click();
+        productsPage.waitAndClickElement(getDriver().findElement(By.cssSelector(locator)));
     }
 
     @Then("user should be presented with a promo alert")
     public void userShouldBePresentedWithAPromoAlert() {
-        getDriver().findElement(By.xpath("//button[text()='Proceed']")).click();
+        productsPage.printSpecialOffersVoucherCode();
+        productsPage.clickOnProceedButtonPopup();
     }
 }
